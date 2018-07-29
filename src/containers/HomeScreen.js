@@ -5,13 +5,11 @@ import { connect } from 'react-redux';
 
 class HomeScreen extends Component {
   render(){
-    console.log(this.props)
     return (
       <div className='homescreen'>
         {['A', 'E', 'I', 'O', 'U'].map((letter)=>(
-          <div>
+          <div key={letter}>
             <BaseLetter
-              key={letter}
               letter={letter}/>
             <hr />
           </div>
