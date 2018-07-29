@@ -1,4 +1,4 @@
-import { GET_WORDS, GET_WORD } from './types';
+import { GET_WORDS, GET_WORD, ADD_WORD } from './types';
 
 export const getWord = (word) => ({
   type: GET_WORD, payload: word
@@ -8,6 +8,10 @@ export const getWords = (words) => ({
   type: GET_WORDS, payload: words
 })
 
+export const addWord = (word) => ({
+  type: ADD_WORD, payload: word
+})
+
 /* Thunk Functions */
 
 export const fetchWord = (url) => (dispatch) => {
@@ -15,4 +19,11 @@ export const fetchWord = (url) => (dispatch) => {
   .then((res)=> res.json())
   .then((data)=> dispatch(getWord(data.results[0])))
   .catch(()=> console.log("Unable to fetch word"));
+}
+
+export const addNewWord = (group, url) => (dispatch) => {
+  fetch(url)
+  .then((res)=> res.json())
+  .then((data)=> dispatch(addWord({group: group, word: data.results[0]})))
+  .catch(()=> console.log("Unable to add word"));
 }

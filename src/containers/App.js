@@ -5,6 +5,7 @@ import './App.css';
 import HomeScreen from './HomeScreen';
 import LearnWords from './LearnWords';
 import PracticeWords from './PracticeWords';
+import AddWord from './AddWord';
 
 class App extends Component {
   render() {
@@ -21,6 +22,9 @@ class App extends Component {
         )}/>
         <Route path='/practice/:letter' render={()=>(
           <PracticeWords />
+        )}/>
+        <Route path='/add-word' render={()=>(
+          <AddWord />
         )}/>
       </div>
     );
