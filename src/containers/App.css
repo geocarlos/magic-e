@@ -1,10 +1,8 @@
-.app {
+.container {
+  margin: auto;
   max-width: 900px;
   background-color: #efefef;
-}
-
-.container{
-  min-height: 100% !important;
+  min-height: 100%;
 }
 
 .app-header{
@@ -13,4 +11,5 @@
 
 .app-logo {
   width: 300px;
+  margin-left: 4em;
 }

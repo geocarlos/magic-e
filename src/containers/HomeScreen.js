@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import './HomeScreen.css'
 import BaseLetter from '../components/BaseLetter';
 import { connect } from 'react-redux';
 
@@ -8,9 +9,12 @@ class HomeScreen extends Component {
     return (
       <div className='homescreen'>
         {['A', 'E', 'I', 'O', 'U'].map((letter)=>(
-          <BaseLetter
-            key={letter}
-            letter={letter}/>
+          <div>
+            <BaseLetter
+              key={letter}
+              letter={letter}/>
+            <hr />
+          </div>
         ))}
       </div>
     )
