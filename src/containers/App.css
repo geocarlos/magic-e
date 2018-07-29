@@ -1,0 +1,16 @@
+.app {
+  max-width: 900px;
+  background-color: #efefef;
+}
+
+.container{
+  min-height: 100% !important;
+}
+
+.app-header{
+  padding: 2em;
+}
+
+.app-logo {
+  width: 300px;
+}
