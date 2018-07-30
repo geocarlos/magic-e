@@ -1,34 +1,46 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import {fetchWord} from '../actions';
+import {fetchWords} from '../actions';
+import Word from '../components/Word';
+import './LearnWords.css';
 
 class LearnWords extends Component {
 
   componentDidMount(){
-    this.props.dispatch(fetchWord('/api/hat'));
-  }
-
-  _play(inp){
-    this.refs[inp].play();
+    if(!this.props.words[this.props.group]){
+      this.props.dispatch(fetchWords(`/api/group/${this.props.group}`));
+    }
   }
 
   render(){
-    console.log(this.props.word)
+
+    const { words, group } = this.props;
+
     return (
       <div className='learn-words text-center'>
-        <h2>{this.props.word.word}</h2>
-        {this.props.word.lexicalEntries && <audio ref='hat' src={this.props.word.lexicalEntries[0].pronunciations[0].audioFile}></audio>}
-        <button onClick={this._play.bind(this, 'hat')}>Hear</button><br />
+        <div className='row' >
+          {
+            !words[group] ? <h3>No words in this group</h3> :
+            words[group]['words'].map((w, i) => (
+              <div key={`${i}${w}`}>
+                <Word
+                  word={w.word}
+                  audio={w.audio}
+                  ipa_spelling={w.ipa_spelling}/>
+              </div>
+            ))
+          }
+        </div>
         <Link to='/'>Home</Link>
       </div>
     )
   }
 }
 
-function mapStateToProps({ word }){
+function mapStateToProps({ words }){
   return {
-    word
+    words
   }
 }
 

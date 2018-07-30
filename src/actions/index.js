@@ -21,9 +21,16 @@ export const fetchWord = (url) => (dispatch) => {
   .catch(()=> console.log("Unable to fetch word"));
 }
 
+export const fetchWords = (url) => (dispatch) => {
+  fetch(url)
+  .then((res)=> res.json())
+  .then((data)=> dispatch(getWords(data)))
+  .catch(()=> console.log("Unable to fetch word group"));
+}
+
 export const addNewWord = (group, url) => (dispatch) => {
   fetch(url)
   .then((res)=> res.json())
-  .then((data)=> dispatch(addWord({group: group, word: data.results[0]})))
+  .then((data)=> dispatch(addWord({group: group, word: data})))
   .catch(()=> console.log("Unable to add word"));
 }

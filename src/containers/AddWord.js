@@ -1,13 +1,16 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import {fetchWord} from '../actions';
+import {addNewWord} from '../actions';
 
 class AddWord extends Component {
 
   _handleSubmit(e){
     e.preventDefault();
     console.log(this.refs);
+    const group = this.refs.group.value;
+    const word = this.refs.word.value;
+    this.props.dispatch(addNewWord(group, `/api/add/${group}/${word}`))
   }
 
   render(){

@@ -17,11 +17,11 @@ class App extends Component {
         <Route exact path='/' render={()=>(
           <HomeScreen />
         )}/>
-        <Route path='/learn/:letter' render={()=>(
-          <LearnWords />
+        <Route path='/learn/:group' render={({match})=>(
+          <LearnWords group={match.params.group} />
         )}/>
-        <Route path='/practice/:letter' render={()=>(
-          <PracticeWords />
+        <Route path='/practice/:group' render={({match})=>(
+          <PracticeWords group={match.params.group} />
         )}/>
         <Route path='/add-word' render={()=>(
           <AddWord />

@@ -11,11 +11,11 @@ export const word = (state = {}, action) => {
 }
 
 export const words = (state = {}, action) => {
+  const newState = state;
   switch (action.type) {
     case GET_WORDS:
-      return action.payload;
+      return {...state, ...action.payload};
     case ADD_WORD:
-      const newState = state;
       if(newState[action.payload.group]){
         newState[action.payload.group].words.push(action.payload.word);
       } else {

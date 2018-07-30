@@ -2,12 +2,14 @@ import React, {Component} from 'react';
 import './HomeScreen.css'
 import BaseLetter from '../components/BaseLetter';
 import { connect } from 'react-redux';
+import { fetchWords } from '../actions';
 
 class HomeScreen extends Component {
+
   render(){
     return (
       <div className='homescreen'>
-        {['A', 'E', 'I', 'O', 'U'].map((letter)=>(
+        {['A', 'I', 'O', 'U'].map((letter)=>(
           <div key={letter}>
             <BaseLetter
               letter={letter}/>
