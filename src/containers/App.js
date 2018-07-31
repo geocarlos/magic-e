@@ -6,6 +6,7 @@ import HomeScreen from './HomeScreen';
 import LearnWords from './LearnWords';
 import PracticeWords from './PracticeWords';
 import AddWord from './AddWord';
+import TodoList from '../components/TodoList';
 
 class App extends Component {
   render() {
@@ -26,6 +27,9 @@ class App extends Component {
         <Route path='/add-word' render={()=>(
           <AddWord />
         )}/>
+        <Route path='/todo-list' render={()=>(
+          <TodoList />
+        )} />
       </div>
     );
   }

@@ -1,0 +1,47 @@
+.card{
+  text-align: center;
+  width: 40%;
+  height: 300px;
+  padding-top: 7em;
+  margin: auto;
+  /* transform: rotateY(180deg); */
+  animation-name: flipcard;
+  animation-duration: 3s;
+}
+
+@keyframes flipcard {
+  from {transform: rotateY(180deg);}
+  to {transform: rotateY(0deg);}
+}
+
+/* .card-appear {
+  opacity: 0.01;
+}
+
+.card-appear.card-appear-active{
+  opacity: 1;
+  transition: opacity .5s ease-in;
+} */
+
+.example-enter.example-enter-active {
+  opacity: 1;
+  transition: opacity 500ms ease-in;
+}
+
+.example-leave {
+  opacity: 1;
+}
+
+.example-leave.example-leave-active {
+  opacity: 0.01;
+  transition: opacity 300ms ease-in;
+}
+
+.example-appear {
+  opacity: 0.01;
+}
+
+.example-appear.example-appear-active {
+  opacity: 1;
+  transition: opacity .5s ease-in;
+}
