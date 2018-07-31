@@ -1,13 +1,15 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import {fetchWord} from '../actions';
+import {fetchWords} from '../actions';
 import Word from '../components/Word';
 
 class PracticeWords extends Component {
 
   componentDidMount(){
-    // this.props.dispatch(fetchWord('/api/word/hate'));
+    if(!this.props.words[this.props.group]){
+      this.props.dispatch(fetchWords(`/api/group/${this.props.group}`));
+    }
   }
 
   _play(inp){

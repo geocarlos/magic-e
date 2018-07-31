@@ -1,0 +1,18 @@
+.speaker-icon{
+  width: 32px;
+  height: 32px;
+}
+
+.audio-btn{
+  background: transparent;
+  border: none;
+}
+
+.audio-btn:focus{
+  border: none;
+  outline: none;
+}
+
+.word-text{
+  cursor: url(magic_cursor.cur), auto;
+}

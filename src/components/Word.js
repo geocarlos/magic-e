@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import Speaker_Icon from './Speaker_Icon.svg';
+import './Word.css';
+import logo from '../logo.png'
 
 class Word extends Component {
 
@@ -8,13 +10,13 @@ class Word extends Component {
   }
 
   render(){
-    const { word, audio } = this.props;
+    const { word, audio, flip } = this.props;
 
     return (
       <div className='col-md'>
-        <h2>{word}</h2>
+        <h2 onClick={()=>{!!flip ? flip() : '';}} className={!!flip ? 'word-text':''}>{word}</h2>
         <audio ref={word} src={audio}></audio>
-        <button className='btn btn-default' onClick={this._play.bind(this, word)}>Hear</button><br />
+        <button className='audio-btn' onClick={this._play.bind(this, word)}><img className='speaker-icon' src={Speaker_Icon} /></button><br />
       </div>
     )
   }

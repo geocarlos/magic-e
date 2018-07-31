@@ -1,0 +1,44 @@
+.back{
+  color: orange;
+  background-color: #eedeae;
+}
+
+.front{
+  background-color: #dedede;
+}
+
+.card,
+.cardback{
+  text-align: center;
+  width: 10em;
+  height: 12em;
+  padding-top: 4em;
+  margin: auto;
+  border: solid;
+  border-width: thin;
+  border-radius: .5em;
+}
+
+.card{
+  animation-name: flipcard;
+  animation-duration: 2s;
+}
+
+.cardback{
+  animation-name: flipcardback;
+  animation-duration: 2s;
+}
+
+.hidden{
+  display: none;
+}
+
+@keyframes flipcard {
+  from {transform: rotateY(180deg); opacity: 0;}
+  to {transform: rotateY(0deg); opacity: 1;}
+}
+
+@keyframes flipcardback {
+  from {transform: rotateY(0deg); opacity: 0;}
+  to {transform: rotateY(180deg); opacity: 1;}
+}

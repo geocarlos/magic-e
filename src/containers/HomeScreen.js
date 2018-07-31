@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import './HomeScreen.css'
 import BaseLetter from '../components/BaseLetter';
 import { connect } from 'react-redux';
-import { fetchWords } from '../actions';
 
 class HomeScreen extends Component {
 
