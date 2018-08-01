@@ -24,6 +24,7 @@ class Card extends Component {
               <Word
                 flip={()=>{this.flip()}}
                 word={w.word}
+                ipa_spelling={w.ipa_spelling}
                 audio={w.audio}
                 ipa_spelling={w.ipa_spelling}/>
          </div>

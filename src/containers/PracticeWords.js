@@ -82,8 +82,7 @@ class PracticeWords extends Component {
                 <Word
                   word={answered ? words[group].words[wordIndex].word : '?'}
                   audio={words[group].words[wordIndex].audio}
-                  autoplay={true}
-                  ipa_spelling={words[group].words[wordIndex].ipa_spelling}/>
+                  autoplay={true}/>
                   <div className='answer-area'>Needs magic E?</div>
                   {!answered ?
                   <div className='yes-no-btns'>

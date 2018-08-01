@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import Speaker_Icon from './Speaker_Icon.svg';
 import './Word.css';
-import logo from '../logo.png'
 
 class Word extends Component {
 
@@ -28,13 +27,14 @@ class Word extends Component {
   }
 
   render(){
-    const { word, audio, flip } = this.props;
+    const { word, audio, flip, ipa_spelling } = this.props;
 
     return (
       <div className='col-md'>
-        <h2 onClick={()=>{!!flip ? flip() : '';}} className={!!flip ? 'word-text':''}>{word}</h2>
+        <h2 onClick={()=>{!!flip && flip();}} className={!!flip ? 'word-text' : ''}>{word}</h2>
+        {ipa_spelling && <h5>[{ipa_spelling}]</h5>}
         <audio ref={word} src={audio}></audio>
-        <button className='audio-btn' onClick={this._play.bind(this, word)}><img className='speaker-icon' src={Speaker_Icon} /></button><br />
+        <button className='audio-btn' onClick={this._play.bind(this, word)}><img className='speaker-icon' src={Speaker_Icon} alt='audio icon' /></button><br />
       </div>
     )
   }
