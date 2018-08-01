@@ -29,7 +29,8 @@ class LearnWords extends Component {
 
     return (
       <div className='learn-words text-center'>
-      <div className='row' >
+      <Link to='/'>Home</Link>
+      <div className='row cards-area' >
         {!words[group] ? <div className='no-words'>
           No words in this group...</div> :
           pairs.map((wp, i) => (
@@ -37,7 +38,6 @@ class LearnWords extends Component {
           ))
         }
       </div>
-        <Link to='/'>Home</Link>
       </div>
     )
   }

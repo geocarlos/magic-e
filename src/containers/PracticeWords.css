@@ -1,0 +1,48 @@
+.link-group{
+  padding: 1em;
+}
+
+.link-group a{
+  margin-left: 3em;
+}
+
+.practice-card{
+  text-align: center;
+  width: 15em;
+  height: 20em;
+  padding-top: 3em;
+  margin: auto;
+  margin-top: 3em;
+  border: solid;
+  border-width: thin;
+  border-radius: .5em;
+  box-shadow: 2px 2px #555;
+  background-color: #fee;
+}
+
+.answer-area{
+  padding: 2em;
+}
+
+.btn-default{
+  margin-left: 1em;
+}
+
+.needs-me{
+  cursor: url(../components/magic_cursor.cur), auto !important;
+}
+
+.intro{
+  font-size: 1.2em;
+  padding: 1em;
+}
+
+.outro{
+  font-size: 1.3em;
+  padding: 2em;
+}
+
+.me {
+  color: red;
+  font-size: 2em;
+}

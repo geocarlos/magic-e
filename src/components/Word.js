@@ -5,8 +5,26 @@ import logo from '../logo.png'
 
 class Word extends Component {
 
+  componentDidMount(){
+    if(this.props.autoplay){
+      this._play(this.props.word)
+    }
+  }
+
+  componentDidUpdate(prevProps){
+    if(this.props.autoplay && prevProps.word !== this.props.word){
+      this._play(this.props.word)
+    }
+  }
+
   _play(inp){
     this.refs[inp].play();
+  }
+
+  checkAutoPlay(inp){
+    if(this.props.autoplay){
+      this._play(inp);
+    }
   }
 
   render(){
