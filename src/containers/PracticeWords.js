@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import {fetchWords} from '../actions';
+import {fetchWords, shuffleWords} from '../actions';
 import Word from '../components/Word';
 import './PracticeWords.css';
 
@@ -20,6 +20,9 @@ class PracticeWords extends Component {
     if(!this.props.words[this.props.group]){
       this.props.dispatch(fetchWords(`/api/group/${this.props.group}`));
     }
+    setTimeout(()=>{
+      this.props.dispatch(shuffleWords(this.props.words[this.props.group].words))
+    }, 1000)
   }
 
   move(){
@@ -41,17 +44,14 @@ class PracticeWords extends Component {
   }
 
   getUserAnswer(answer, word){
-    console.log('running')
     if(answer === this.needsMagicE(word)){
-      console.log('Correct')
       this.setState({score: this.state.score + 1})
-    } else {
-      console.log('Wrong')
     }
     this.setState({answered: true})
   }
 
   repeatExercise(){
+    this.props.dispatch(shuffleWords(this.props.words[this.props.group].words))
     this.setState({
       wordIndex: 0,
       currectAnswer: false,
@@ -63,9 +63,8 @@ class PracticeWords extends Component {
   }
 
   render(){
-    const { words, group } = this.props;
+    const { group, shuffledWords } = this.props;
     const { wordIndex, answered, score } = this.state;
-
     return (
       <div className='learn-words text-center'>
         <div className='link-group'>
@@ -74,21 +73,21 @@ class PracticeWords extends Component {
         </div>
         <div className='row' >
           {
-            !words[group] ? <h3>No words in this group</h3> :
+            !shuffledWords.length ? <h3>No words in this group</h3> :
             <div className='practice-card'>
             {this.state.started && !this.state.finished ?
               <div>
                 <h5>Your score: {score}</h5>
                 <Word
-                  word={answered ? words[group].words[wordIndex].word : '?'}
-                  audio={words[group].words[wordIndex].audio}
+                  word={answered ? shuffledWords[wordIndex].word : '?'}
+                  audio={shuffledWords[wordIndex].audio}
                   autoplay={true}/>
                   <div className='answer-area'>Needs magic E?</div>
                   {!answered ?
                   <div className='yes-no-btns'>
-                    <button onClick={this.getUserAnswer.bind(this, true, words[group].words[wordIndex].word)}
+                    <button onClick={this.getUserAnswer.bind(this, true, shuffledWords[wordIndex].word)}
                       className='btn btn-default needs-me'>Yes</button>
-                    <button onClick={this.getUserAnswer.bind(this, false, words[group].words[wordIndex].word)}
+                    <button onClick={this.getUserAnswer.bind(this, false, shuffledWords[wordIndex].word)}
                       className='btn btn-default'>No</button>
                   </div>
                   :
@@ -98,7 +97,7 @@ class PracticeWords extends Component {
               </div> :
                this.state.finished ?
                 <div className='outro'>
-                  {score > words[group].words.length - 3 ?
+                  {score > shuffledWords.length - 3 ?
                     `Congratulations, you did well! ${score} points!` :
                     `You've scored only ${score} ${score === 1?'point':'points'}... but that's ok, keep practicing!`}
                 <div>
@@ -120,9 +119,10 @@ class PracticeWords extends Component {
   }
 }
 
-function mapStateToProps({ words }){
+function mapStateToProps({ words, shuffledWords }){
   return {
-    words
+    words,
+    shuffledWords
   }
 }
 

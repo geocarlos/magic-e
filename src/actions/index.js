@@ -1,4 +1,4 @@
-import { GET_WORDS, GET_WORD, ADD_WORD } from './types';
+import { GET_WORDS, GET_WORD, ADD_WORD, SHUFFLE_WORDS } from './types';
 
 export const getWord = (word) => ({
   type: GET_WORD, payload: word
@@ -10,6 +10,10 @@ export const getWords = (words) => ({
 
 export const addWord = (word) => ({
   type: ADD_WORD, payload: word
+})
+
+export const shuffleWords = (words) => ({
+  type: SHUFFLE_WORDS, payload: words
 })
 
 /* Thunk Functions */

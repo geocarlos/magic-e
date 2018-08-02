@@ -1,5 +1,5 @@
 import {combineReducers} from 'redux';
-import {GET_WORD, GET_WORDS, ADD_WORD} from '../actions/types';
+import {GET_WORD, GET_WORDS, ADD_WORD, SHUFFLE_WORDS} from '../actions/types';
 
 export const word = (state = {}, action) => {
   switch (action.type) {
@@ -27,4 +27,14 @@ export const words = (state = {}, action) => {
   }
 }
 
-export default combineReducers({ word, words });
+export const shuffledWords = (state = [], action) => {
+  switch (action.type) {
+    case SHUFFLE_WORDS:
+      const arr = Object.assign([], action.payload)
+      return arr.sort(()=>0.5 - Math.random());
+    default:
+      return state;
+  }
+}
+
+export default combineReducers({ word, words, shuffledWords });
