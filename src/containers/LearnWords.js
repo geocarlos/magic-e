@@ -20,7 +20,6 @@ class LearnWords extends Component {
     const pairs = [];
 
     if(words[group]){
-      words[group].words.sort();
       for(let i = 0; i < words[group].words.length; i += 2){
         pairs.push([words[group].words[i], words[group].words[i+1]]);
       }
