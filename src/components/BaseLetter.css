@@ -1,0 +1,13 @@
+.letter{
+  text-align: center;
+}
+
+@media screen and (max-width: 767px){
+  .letter .link {
+    border: solid;
+    padding: .5em;
+    border-width: thin;
+    border-radius: .5em;
+    margin: .5em;
+  }
+}

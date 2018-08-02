@@ -13,3 +13,23 @@
   width: 45%;
   margin-left: 4em;
 }
+
+@media screen and (max-width: 400px){
+  .app-logo{
+    margin: 1em;
+    min-width: 80%;
+  }
+  .app-header{
+    padding: .2em;
+  }
+}
+
+@media screen and (max-width: 700px){
+  .app-logo{
+    margin: 2em;
+    min-width: 70%;
+  }
+  .app-header{
+    padding: .5em;
+  }
+}

@@ -22,7 +22,7 @@ class PracticeWords extends Component {
     }
     setTimeout(()=>{
       this.props.dispatch(shuffleWords(this.props.words[this.props.group].words))
-    }, 1000)
+    }, 500)
   }
 
   move(){
@@ -66,14 +66,14 @@ class PracticeWords extends Component {
     const { group, shuffledWords } = this.props;
     const { wordIndex, answered, score } = this.state;
     return (
-      <div className='learn-words text-center'>
+      <div className='text-center'>
         <div className='link-group'>
           <Link to='/'>Home</Link>
           <Link to={`/learn/${group}`}>Learn words with {group.toUpperCase()}</Link>
         </div>
         <div className='row' >
           {
-            !shuffledWords.length ? <h3>No words in this group</h3> :
+            !shuffledWords.length ? <h3 className='no-words'>No words in this group</h3> :
             <div className='practice-card'>
             {this.state.started && !this.state.finished ?
               <div>
@@ -82,7 +82,7 @@ class PracticeWords extends Component {
                   word={answered ? shuffledWords[wordIndex].word : '?'}
                   audio={shuffledWords[wordIndex].audio}
                   autoplay={true}/>
-                  <div className='answer-area'>Needs magic E?</div>
+                  <div className='answer-area'>Needs Magic E?</div>
                   {!answered ?
                   <div className='yes-no-btns'>
                     <button onClick={this.getUserAnswer.bind(this, true, shuffledWords[wordIndex].word)}

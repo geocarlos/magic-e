@@ -11,9 +11,10 @@
 .cardback{
   text-align: center;
   width: 10em;
-  height: 12em;
+  height: 13em;
   padding-top: 3em;
   margin: auto;
+  margin-top: 1em;
   border: solid;
   border-width: thin;
   border-radius: .5em;
@@ -41,4 +42,15 @@
 @keyframes flipcardback {
   from {transform: rotateY(0deg); opacity: 0;}
   to {transform: rotateY(180deg); opacity: 1;}
+}
+
+@media screen and (max-width: 700px){
+  .card,
+  .cardback{
+    padding-top: 1.7em;
+    width: 8em;
+    height: 10em;
+    margin: auto;
+    margin-top: .5em;
+  }
 }

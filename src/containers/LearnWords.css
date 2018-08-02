@@ -4,10 +4,21 @@
 }
 
 .cards-area{
+  margin: auto;
   margin-top: 5em;
 }
 
 .no-words{
   font-size: 2em;
   margin: auto;
+}
+
+@media screen and (max-width: 700px){
+  .cards-area{
+    margin: auto;
+    margin-top: .5em;
+  }
+  .learn-words{
+    padding: .5em;
+  }
 }
